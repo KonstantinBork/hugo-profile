@@ -112,6 +112,24 @@
                     </li>
                     {{ end }}
 
+                    {{ if and (.Site.Params.skills.enable | default false) (not (.Site.Params.navbar.menus.disableSkills | default false)) }}
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="{{ .Site.BaseURL | relURL }}#skills"
+                            aria-label="skills">
+                            {{ .Site.Params.skills.title | default "Skills" }}
+                        </a>
+                    </li>
+                    {{ end }}
+
+                    {{ if and (.Site.Params.languages.enable | default false) (not (.Site.Params.navbar.menus.disableLanguages | default false)) }}
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="{{ .Site.BaseURL | relURL }}#languages"
+                            aria-label="languages">
+                            {{ .Site.Params.languages.title | default "Languages" }}
+                        </a>
+                    </li>
+                    {{ end }}
+
                     {{ if and (.Site.Params.projects.enable | default false) (not (.Site.Params.navbar.menus.disableProjects | default false)) }}
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="{{ .Site.BaseURL | relURL }}#projects"

@@ -1,0 +1,29 @@
+{{ if .Site.Params.skills.enable | default false }}
+<section id="skills" class="py-5">
+    <div class="container">
+        <h3 class="text-center">{{ .Site.Params.skills.title }}</h3>
+        <div class="row justify-content-center py-5">
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                              {{ range $index, $element := .Site.Params.skills.items }}
+                                {{ if .title }}
+                                  <h4 class="pt-2">{{ .title }}</h4>
+                                {{ end }}
+                                <ul class="list-group list-group-horizontal">
+                                {{ range $jndex, $skill := .items}}
+                                  <li class="list-group-item">{{ $skill }}</li>
+                                {{ end }}
+                                </ul>
+                              {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

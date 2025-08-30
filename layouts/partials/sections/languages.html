@@ -1,0 +1,29 @@
+{{ if .Site.Params.languages.enable | default false }}
+<section id="languages" class="py-5">
+    <div class="container">
+        <h3 class="text-center">{{ .Site.Params.languages.title | default "Languages" }}</h3>
+        <div class="row justify-content-center py-5">
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                            {{ range $index, $element := .Site.Params.languages.items }}
+                              <div class="row">
+                                <div class="col-2 fw-bold">
+                                  {{ .name }}
+                                </div>
+                                <div class="col-10">
+                                  {{ .value }}
+                                </div>
+                              </div>
+                            {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
