@@ -10,6 +10,10 @@
 {{.Title }} | {{ .Site.Title }}
 {{ end }}
 
+{{ define "isStaticPage" }}
+{{ .isStaticPage }} | false
+{{ end }}
+
 {{ define "main" }}
 <section id="single">
   <div class="container">
@@ -18,6 +22,7 @@
         <div class="pr-lg-4">
           <div class="title mb-5">
             <h1 class="text-center mb-4">{{ .Title }}</h1>
+            {{ if not .Params.isStaticPage }}
             <div class="text-center">
               {{ if .Params.author }}
                 {{ .Params.author }}
@@ -31,6 +36,7 @@
               </span>
               {{ end }}
             </div>
+            {{ end }}
           </div>
           {{ if .Params.image }}
           <div class="featured-image">
@@ -42,6 +48,7 @@
           </article>
         </div>
       </div>
+      {{ if not .Params.isStaticPage }}
       <div class="col-sm-12 col-md-12 col-lg-3">
         <div id="stickySideBar" class="sticky-sidebar">
           {{ if .Params.toc | default true}}
@@ -99,6 +106,7 @@
           {{ end }}
         </div>
       </div>
+      {{ end }}
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-9 p-4">
